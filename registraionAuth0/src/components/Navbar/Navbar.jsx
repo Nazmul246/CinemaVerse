@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { FiSearch } from 'react-icons/fi';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +26,7 @@ const Navbar = () => {
   const favoritesAuth = () => {
     Swal.fire('Please Sign Up to Access Your Favorite List');
   };
+
   const profileAuth = () => {
     Swal.fire('Please Sign Up to View Your Profile');
   };
@@ -37,7 +38,7 @@ const Navbar = () => {
           {/* Left-aligned MovieStore */}
           <div className="flex items-center">
             <Link to="/" className="text-white font-bold text-xl">
-              <img src="/assets/images/logo1.png" alt="Logo" />
+              <h1 className='font-alegreya font-bold text-3xl text-yellow-300'>CINEVERSE</h1>
             </Link>
           </div>
           {/* Centered Links */}
@@ -93,14 +94,14 @@ const Navbar = () => {
             </button>
             <form
               onSubmit={handleSearch}
-              className={`flex items-center ${isSearchOpen ? 'block' : 'hidden'} md:flex`}
+              className={`flex items-center ${isSearchOpen ? 'block' : 'hidden'} md:hidden absolute top-16 right-0 bg-black p-2 rounded-md`}
             >
               <input
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search..."
-                className="p-2 w-48 md:w-64 rounded-md outline-none"
+                className="p-2 w-48 rounded-md outline-none"
               />
               <button type="submit" className="p-2 bg-black text-white rounded-md">
                 Search
@@ -156,27 +157,65 @@ const Navbar = () => {
             <Link to="/movies" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               Movies
             </Link>
-            <Link to="/favorites" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/series" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+              Series
+            </Link>
+            <Link to={isAuthenticated ? '/favorites' : '#'}
+              className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={(e) => {
+                if (!isAuthenticated) {
+                  e.preventDefault();
+                  favoritesAuth();
+                } else {
+                  setMenuHr('favorites');
+                }
+              }}
+            >
               Favorites
             </Link>
-            <Link to="/profiles" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Profiles
+            <Link to={isAuthenticated ? '/profiles' : '#'} 
+              className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={(e) => {
+                if (!isAuthenticated) {
+                  e.preventDefault();
+                  profileAuth();
+                } else {
+                  setMenuHr('profile');
+                }
+              }}
+            >
+              Profile
             </Link>
             {isAuthenticated ? (
               <button
                 onClick={() => logout({ returnTo: window.location.origin })}
-                className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left"
               >
                 Logout
               </button>
             ) : (
               <button
                 onClick={() => loginWithRedirect()}
-                className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left"
               >
                 Login
               </button>
             )}
+            <form
+              onSubmit={handleSearch}
+              className="flex items-center mt-4"
+            >
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search..."
+                className="p-2 w-full rounded-md outline-none"
+              />
+              <button type="submit" className="p-2 bg-black text-white rounded-md">
+                Search
+              </button>
+            </form>
           </div>
         </div>
       )}

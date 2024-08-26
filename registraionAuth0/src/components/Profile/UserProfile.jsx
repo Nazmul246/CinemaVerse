@@ -25,18 +25,22 @@ const UserProfile = () => {
                     />
                     <h2 className='text-3xl font-bold mb-2'>{user.name}</h2>
                     <p className='text-lg mb-4'>{user.email}</p>
-                    <Link
-                        to="/"
-                        className='bg-yellow-500 text-black py-2 px-4 mr-10 rounded-lg hover:bg-yellow-400 transition-colors'
-                    >
-                        Go Home
-                    </Link>
-                    <Link
-                        to="/movie-request"
-                        className='bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors'
-                    >
-                        Request Movie
-                    </Link>
+                    <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 lg:justify-center">
+                        <Link
+                            to="/"
+                            className='bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors text-center whitespace-nowrap'
+                        >
+                            Go Home
+                        </Link>
+                        <Link
+                            to="/movie-request"
+                            className='bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors text-center whitespace-nowrap'
+                        >
+                            Request Movie
+                        </Link>
+                    </div>
+
+
                 </div>
             </div>
         )

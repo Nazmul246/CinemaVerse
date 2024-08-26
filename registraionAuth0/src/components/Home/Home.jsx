@@ -44,8 +44,8 @@ const Home = () => {
             <TopRatedSeries/>
             <UpcomingMovies />
             <div className='text-white text-center mt-28 mb-14'>
-              <h1 className='text-4xl'>Can't find the movie you're looking for? Sign up now and request it directly</h1> <br />
-              <h1 className='text-2xl text-emerald-500'>Your favorite movies are just a click away!</h1>
+              <h1 className='text-sm md:text-2xl lg:text-4xl'>Can't find the movie you're looking for? Sign up now and request it directly</h1> <br />
+              <h1 className='text-sm md:text-2xl lg:text-4xl text-emerald-500'>Your favorite movies are just a click away!</h1>
             </div>
           </>
         )}

@@ -9,6 +9,8 @@ export default {
       fontFamily: {
         sans: ['Roboto', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
+        charm: ['Charm', 'sans-serif'],
+        alegreya: ['Alegreya', 'sans-serif']
       },
     },
   },

@@ -12,7 +12,7 @@ const Favorites = () => {
           backgroundImage: 'url(/assets/images/coming-soon.jpg)',
           backgroundSize: 'cover', 
           backgroundPosition: 'center', 
-          minHeight: '92vh' 
+          minHeight: '92vh',
         }}
       >
         

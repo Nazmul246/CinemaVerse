@@ -49,7 +49,7 @@ const SearchResults = () => {
                 : `No results found for "${searchQuery}"`}
             </p>
           </div>
-          <div className='grid gap-10 m-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5'>
+          <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 m-4 sm:m-8 md:m-10 lg:m-12'>
             {
               movieList.map((singleMovie) => (
                 <SingleMovies
