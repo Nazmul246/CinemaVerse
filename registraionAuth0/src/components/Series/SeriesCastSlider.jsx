@@ -34,7 +34,7 @@ const SeriesCastSlider = ({ cast }) => {
 
   return (
     <div className="series-cast-slider">
-      <h2 className="text-2xl font-bold mb-4 pl-12 text-white">Series Cast</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center text-white">Top Billed Cast</h2>
       <Slider {...settings}>
         {cast.map((actor) => {
           const profileUrl = actor.profile_path
@@ -44,7 +44,7 @@ const SeriesCastSlider = ({ cast }) => {
           return (
             <div key={actor.id} className="p-2">
               <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                <img src={profileUrl} alt={actor.name} className="w-full h-56 object-cover" />
+                <img src={profileUrl} alt={actor.name} className="w-full h-44 md:h-56 lg:h-56 object-cover" />
                 <div className="p-4">
                   <p className="text-sm text-black font-bold truncate">{actor.name}</p>
                   <p className="text-gray-600 truncate">{actor.character}</p>
