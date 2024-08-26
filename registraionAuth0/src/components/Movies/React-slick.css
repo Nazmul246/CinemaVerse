@@ -1,0 +1,15 @@
+.slick-prev {
+    left: -25px; /* Adjust the value to position the left arrow */
+    z-index: 1;
+  }
+  
+  .slick-next {
+    right: -25px; /* Adjust the value to position the right arrow */
+    z-index: 1;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: white; /* Ensures the arrow color matches your design */
+    font-size: 24px; /* Adjust the arrow size if needed */
+  }
+  

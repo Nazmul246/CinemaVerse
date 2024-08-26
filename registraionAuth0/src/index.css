@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    background-image: url('/assets/images/oppen-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Additional styling */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent overlay */
+    backdrop-filter: blur(2px); /* Adjust the blur value as needed */
+    z-index: -1; /* Ensure the overlay stays behind other content */
+}
+
+.layout-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    padding-top: 4rem;
+  }
+
+.slick-dots li.slick-active button:before {
+    color: #FF0000; /* Active dot color */
+  }
+  
+  
+  .slick-dots li button:before {
+    color: #CCCCCC;
+    font-size: 12px;
+  }
+  
